@@ -1,5 +1,18 @@
+import { useHashNavigation } from "./hooks/useHashNavigation.js"
+
 function App() {
-  return <div>Hello World</div>
+  const { page } = useHashNavigation()
+
+  return (
+    <>
+      <p>
+        <p>Page : {page}</p>
+        <a href="#">Home</a>
+        <a href="#post">Article</a>
+        <a href="#contact">Contact</a>
+      </p>
+    </>
+  )
 }
 
 export default App
