@@ -3,6 +3,7 @@ import { Home } from "./pages/Home.jsx"
 import { Contact } from "./pages/Contact.jsx"
 import { Post } from "./pages/Post.jsx"
 import { NotFound } from "./pages/NotFound.jsx"
+import { Header } from "./components/Header.jsx"
 
 function App() {
   const { page } = useHashNavigation()
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <>
+      <Header page={page} />
       <p>
         <p>Page : {page}</p>
         <a href="#">Home</a>
