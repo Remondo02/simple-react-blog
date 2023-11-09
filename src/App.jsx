@@ -1,13 +1,13 @@
 import { useHashNavigation } from "./hooks/useHashNavigation.js"
 import { Home } from "./pages/Home.jsx"
 import { Contact } from "./pages/Contact.jsx"
-import { Post } from "./pages/Post.jsx"
+import { Single } from "./pages/Single.jsx"
 import { NotFound } from "./pages/NotFound.jsx"
 import { Header } from "./components/Header.jsx"
 
 function App() {
-  const { page } = useHashNavigation()
-  const pageContent = getPageContent(page)
+  const { page, param } = useHashNavigation()
+  const pageContent = getPageContent(page, param)
 
   return (
     <>
@@ -17,7 +17,7 @@ function App() {
   )
 }
 
-function getPageContent(page) {
+function getPageContent(page, param) {
   if (page === "home") {
     return <Home />
   }
@@ -25,7 +25,7 @@ function getPageContent(page) {
     return <Contact />
   }
   if (page === "post") {
-    return <Post />
+    return <Single postId={param} />
   }
   return <NotFound page={page} />
 }

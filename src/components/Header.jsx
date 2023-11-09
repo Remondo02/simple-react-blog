@@ -9,7 +9,7 @@ export function Header({ page }) {
   const [expanded, toggleExpanded] = useToggle(false)
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="p-3 navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
         MonSite
       </a>

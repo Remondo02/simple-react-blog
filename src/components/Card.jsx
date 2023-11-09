@@ -10,13 +10,13 @@ export function Card({ image, title, description, href, buttonLabel }) {
   const showButton = !!(href && buttonLabel)
   return (
     <>
-      <div class="card">
-        {image && <img src={image} class="card-img-top" alt="" />}
-        <div class="card-body">
-          {title && <h5 class="card-title">{title}</h5>}
-          {description && <p class="card-text">{description}</p>}
+      <div className="card">
+        {image && <img src={image} className="card-img-top" alt="" />}
+        <div className="card-body">
+          {title && <h5 className="card-title">{title}</h5>}
+          {description && <p className="card-text">{description}</p>}
           {showButton && (
-            <a href={href} class="btn btn-primary">
+            <a href={href} className="btn btn-primary">
               {buttonLabel}
             </a>
           )}

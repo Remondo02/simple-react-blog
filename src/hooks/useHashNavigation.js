@@ -14,7 +14,10 @@ export function useHashNavigation() {
     }
   }, [])
 
+  const cleanHash = hash.replaceAll("#", "").toLowerCase()
+
   return {
-    page: hash.replaceAll("#", "").toLowerCase() || "home",
+    page: cleanHash ? cleanHash.split(":")[0] : "home",
+    param: cleanHash.split(":")[1],
   }
 }

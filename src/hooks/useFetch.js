@@ -10,7 +10,7 @@ import { useRefSync } from "./useRefSync.js"
 export function useFetch(url, options = {}) {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
-  const [error, setErro] = useState(null)
+  const [error, setError] = useState(null)
   const optionsRef = useRefSync(options)
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function useFetch(url, options = {}) {
       .then((data) => {
         setLoading(false), setData(data)
       })
-      .catch((e) => setErro(e))
+      .catch((e) => setError(e))
       .finally(() => setLoading(false))
   }, [url])
 
@@ -33,6 +33,6 @@ export function useFetch(url, options = {}) {
     loading,
     data,
     error,
-    setData
+    setData,
   }
 }
