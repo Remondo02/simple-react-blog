@@ -12,13 +12,7 @@ function App() {
   return (
     <>
       <Header page={page} />
-      <p>
-        <p>Page : {page}</p>
-        <a href="#">Home</a>
-        <a href="#post">Article</a>
-        <a href="#contact">Contact</a>
-      </p>
-      {pageContent}
+      <div className="container my-3">{pageContent}</div>
     </>
   )
 }
