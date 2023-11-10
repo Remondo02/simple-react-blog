@@ -1,3 +1,5 @@
+import { Button } from "./Button.jsx"
+
 /**
  * @param {string} image
  * @param {string} title
@@ -16,9 +18,9 @@ export function Card({ image, title, description, href, buttonLabel }) {
           {title && <h5 className="card-title">{title}</h5>}
           {description && <p className="card-text">{description}</p>}
           {showButton && (
-            <a href={href} className="btn btn-primary">
+            <Button variant="primary" href={href} className="btn btn-primary">
               {buttonLabel}
-            </a>
+            </Button>
           )}
         </div>
       </div>
