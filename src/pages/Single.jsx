@@ -12,6 +12,7 @@ export function Single({ postId }) {
     data: post,
     loading,
     error,
+    setData,
   } = useFetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
   useDocumentTitle(post?.title)
   const [isEditing, toggleEditing] = useToggle(false)
@@ -24,6 +25,14 @@ export function Single({ postId }) {
     return <Alert type="danger">{error.toString()}</Alert>
   }
 
+  const handleSave = (data) => {
+    setData({
+      ...post,
+      ...data,
+    })
+    toggleEditing()
+  }
+
   return (
     <>
       <h1 className="mb-3">{post.title}</h1>
@@ -33,7 +42,13 @@ export function Single({ postId }) {
         className="img-fluid rounded mx-auto d-block mb-3"
       />
       <p>{post.body}</p>
-      {isEditing && <EditPostModal post={post} onClose={toggleEditing} />}
+      {isEditing && (
+        <EditPostModal
+          post={post}
+          onClose={toggleEditing}
+          onSave={handleSave}
+        />
+      )}
       <Button variant="secondary" onClick={toggleEditing}>
         Editer l'article
       </Button>
