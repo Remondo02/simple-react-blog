@@ -12,14 +12,16 @@ function App() {
   const { page, param } = useHashNavigation()
   const pageContent = getPageContent(page, param)
   const { theme } = useTheme()
-
+  const baseStyle = { height: "100%", minHeight: "100vh" }
+  const fullStyle = page === "home" ? baseStyle : { maxWidth: 800, ...baseStyle}
+  
   return (
     <>
       <Header page={page} />
       <div className={`bg-${theme}`}>
         <div
           className="container py-4"
-          style={{ height: "100%", minHeight: "100vh" }}
+          style={ fullStyle }
         >
           <ErrorBoundary FallbackComponent={PageError}>
             {pageContent}

@@ -7,6 +7,7 @@ import { useToggle } from "../hooks/useToggle.js"
 import { Modal } from "../components/Modal.jsx"
 import { EditPostModal } from "./Single/EditPostModal.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
+import { Pagination } from "../components/Pagination.jsx"
 
 export default function Single({ postId }) {
   const { theme, themeText } = useTheme()
@@ -54,7 +55,7 @@ export default function Single({ postId }) {
       <Button variant="secondary" onClick={toggleEditing}>
         Editer l'article
       </Button>
-      <p>
+      {/* <p>
         <a
           href={`#post:${post.id + 1}`}
           role="button"
@@ -62,7 +63,8 @@ export default function Single({ postId }) {
         >
           Article suivant
         </a>
-      </p>
+      </p> */}
+      <Pagination firstButtonLabel={"article précédent"} lastButtonLabel={"article suivant"} page={post} />
     </>
   )
 }
