@@ -1,12 +1,13 @@
 import { Button } from "../../components/Button.jsx"
 import { Modal } from "../../components/Modal.jsx"
 import { Input } from "../../components/Input.jsx"
-import { Alert } from "../../components/Alert.jsx"
 import { useState } from "react"
+import { Alert } from "../../components/Alert.jsx"
 
 export function EditPostModal({ post, onClose, onSave }) {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setError(null)
@@ -38,14 +39,14 @@ export function EditPostModal({ post, onClose, onSave }) {
         />
         <div className="hstack gap-2 justify-content-end">
           <Button
-            disable={loading}
+            disabled={loading}
             type="button"
             variant="secondary"
             onClick={onClose}
           >
             Annuler
           </Button>
-          <Button disable={loading} type="submit">
+          <Button disabled={loading} type="submit">
             Sauvegarder
           </Button>
         </div>

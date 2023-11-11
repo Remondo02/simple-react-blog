@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
+import { useTheme } from "../hooks/useTheme.jsx"
 
 export function Modal({ children, onClose }) {
+  const { theme, themeText } = useTheme()
+  const dialogClassName = `bg-${theme} text-${themeText}`
   const dialogRef = useRef(null)
 
   useEffect(() => {
@@ -15,6 +18,7 @@ export function Modal({ children, onClose }) {
 
   return createPortal(
     <dialog
+    className={dialogClassName}
       style={{ width: "calc(100vw - 2rem", maxWidth: 600 }}
       ref={dialogRef}
       onCancel={handleClose}

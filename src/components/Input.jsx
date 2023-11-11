@@ -10,7 +10,7 @@ export function Input({ type, label, ...props }) {
           {label}
         </label>
       )}
-      <InputComponent class="form-control" id={id} {...props} />
+      <InputComponent className="form-control" id={id} {...props} />
     </div>
   )
 }

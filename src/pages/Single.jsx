@@ -9,7 +9,7 @@ import { EditPostModal } from "./Single/EditPostModal.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
 
 export default function Single({ postId }) {
-  const { themeText } = useTheme()
+  const { theme, themeText } = useTheme()
   const {
     data: post,
     loading,

@@ -17,7 +17,10 @@ function App() {
     <>
       <Header page={page} />
       <div className={`bg-${theme}`}>
-        <div className="container py-4">
+        <div
+          className="container py-4"
+          style={{ height: "100%", minHeight: "100vh" }}
+        >
           <ErrorBoundary FallbackComponent={PageError}>
             {pageContent}
           </ErrorBoundary>
