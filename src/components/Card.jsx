@@ -12,7 +12,10 @@ import { Button } from "./Button.jsx"
 export function Card({ image, title, description, href, buttonLabel }) {
   const showButton = !!(href && buttonLabel)
   const { theme, themeText } = useTheme()
-  const divClassName = `card border-${themeText} bg-${theme} text-${themeText}`
+  const themeBg = theme === "light" ? "primary" : "dark"
+  const themeSwitcherColor = theme === "light" ? "primary" : "light" 
+  const cardBorder = themeText === "light" ? "secondary" : "dark-subtle"
+  const divClassName = `card border-${cardBorder} bg-${theme} text-${themeText}`
 
   return (
     <>
@@ -22,7 +25,7 @@ export function Card({ image, title, description, href, buttonLabel }) {
           {title && <h5 className="card-title">{title}</h5>}
           {description && <p className="card-text">{description}</p>}
           {showButton && (
-            <Button variant={themeText} href={href}>
+            <Button variant={themeSwitcherColor} href={href}>
               {buttonLabel}
             </Button>
           )}

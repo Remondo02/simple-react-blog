@@ -12,7 +12,7 @@ export function Pagination({ firstButtonLabel, lastButtonLabel, page: post }) {
 
   return (
     <nav aria-label="Page navigation" className="d-flex justify-content-center">
-      <ul className="pagination">
+      <ul className="pagination mb-0">
         <li className={`page-item ${classDisable}`}>
           <a
             className="page-link"

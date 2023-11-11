@@ -38,13 +38,13 @@ export default function Single({ postId }) {
 
   return (
     <>
-      <h1 className={`mb-3 text-${themeText}`}>{post.title}</h1>
+      <h1 className={`mb-4 text-${themeText}`}>{post.title}</h1>
       <img
         src={`https://picsum.photos/id/${post.id}/800/600`}
         alt=""
-        className="img-fluid rounded mx-auto d-block mb-3"
+        className="img-fluid rounded mx-auto d-block mb-4"
       />
-      <p className={`text-${themeText}`}>{post.body}</p>
+      <p className={`text-${themeText} mb-4`}>{post.body}</p>
       {isEditing && (
         <EditPostModal
           post={post}
@@ -52,19 +52,16 @@ export default function Single({ postId }) {
           onSave={handleSave}
         />
       )}
-      <Button variant="secondary" onClick={toggleEditing}>
-        Editer l'article
-      </Button>
-      {/* <p>
-        <a
-          href={`#post:${post.id + 1}`}
-          role="button"
-          className="btn btn-primary"
-        >
-          Article suivant
-        </a>
-      </p> */}
-      <Pagination firstButtonLabel={"article précédent"} lastButtonLabel={"article suivant"} page={post} />
+      <div className="d-flex justify-content-between">
+        <Button variant="secondary" onClick={toggleEditing}>
+          Editer l'article
+        </Button>
+        <Pagination
+          firstButtonLabel={"article précédent"}
+          lastButtonLabel={"article suivant"}
+          page={post}
+        />
+      </div>
     </>
   )
 }

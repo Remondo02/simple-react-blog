@@ -12,9 +12,9 @@ function App() {
   const { page, param } = useHashNavigation()
   const pageContent = getPageContent(page, param)
   const { theme } = useTheme()
-  const baseStyle = { height: "100%", minHeight: "100vh" }
+  const baseStyle = { height: "100%", minHeight: "calc(100vh - 72px)" }
   const fullStyle = page === "home" ? baseStyle : { maxWidth: 800, ...baseStyle}
-  
+
   return (
     <>
       <Header page={page} />

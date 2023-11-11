@@ -2,14 +2,17 @@ import { useState } from "react"
 import { useToggle } from "../hooks/useToggle.js"
 import { activeClassIf } from "../utils/classnames.js"
 import { useTheme } from "../hooks/useTheme.jsx"
+import { Sun, Moon } from "react-bootstrap-icons"
 
 /**
  * @param {string} page
  */
 export function Header({ page }) {
   const [expanded, toggleExpanded] = useToggle(false)
-  const { theme, toggleTheme } = useTheme()
+  const { theme, toggleTheme, isLight } = useTheme()
   const navClassName = `p-3 shadow-sm navbar navbar-expand-lg navbar-${theme} bg-${theme}`
+  const themeSwitcherColor =
+    theme === "light" ? "btn btn-primary" : "btn btn-light"
 
   return (
     <nav className={navClassName}>
@@ -46,7 +49,13 @@ export function Header({ page }) {
           </li>
         </ul>
       </div>
-      <button onClick={toggleTheme}>Changer de theme</button>
+      <button
+        type="button"
+        className={themeSwitcherColor}
+        onClick={toggleTheme}
+      >
+        {isLight ? <Moon /> : <Sun />}
+      </button>
     </nav>
   )
 }
