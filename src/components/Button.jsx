@@ -9,8 +9,6 @@ export function Button({ variant = "primary", ...props }) {
     className: `btn btn-${variant}`,
   }
 
-  console.log(newProps)
-
   if (props.href) {
     return <a {...newProps} />
   }

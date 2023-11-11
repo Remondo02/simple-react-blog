@@ -12,7 +12,7 @@ export function Header({ page }) {
   const { theme, toggleTheme, isLight } = useTheme()
   const navClassName = `p-3 shadow-sm navbar navbar-expand-lg navbar-${theme} bg-${theme}`
   const themeSwitcherColor =
-    theme === "light" ? "btn btn-primary" : "btn btn-light"
+    isLight ? "btn btn-primary" : "btn btn-light"
 
   return (
     <nav className={navClassName}>

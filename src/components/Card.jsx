@@ -12,8 +12,7 @@ import { Button } from "./Button.jsx"
 export function Card({ image, title, description, href, buttonLabel }) {
   const showButton = !!(href && buttonLabel)
   const { theme, themeText } = useTheme()
-  const themeBg = theme === "light" ? "primary" : "dark"
-  const themeSwitcherColor = theme === "light" ? "primary" : "light" 
+  const themeSwitcherColor = theme === "light" ? "primary" : "light"
   const cardBorder = themeText === "light" ? "secondary" : "dark-subtle"
   const divClassName = `card border-${cardBorder} bg-${theme} text-${themeText}`
 
