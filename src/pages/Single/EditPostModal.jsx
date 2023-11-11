@@ -8,7 +8,7 @@ export function EditPostModal({ post, onClose, onSave }) {
   }
 
   return (
-    <Modal>
+    <Modal onClose={onClose}>
       <h1>Editer l'article</h1>
       <form action="" onSubmit={handleSubmit} className="vstack gap-3">
         <Input name="title" label="Titre" defaultValue={post.title} />
@@ -18,7 +18,12 @@ export function EditPostModal({ post, onClose, onSave }) {
           type="textarea"
           defaultValue={post.body}
         />
-        <Button type="submit">Sauvegarder</Button>
+        <div className="hstack gap-2 justify-content-end">
+          <Button type="button" variant="secondary" onClick={onClose}>
+            Annuler
+          </Button>
+          <Button type="submit">Sauvegarder</Button>
+        </div>
       </form>
     </Modal>
   )
