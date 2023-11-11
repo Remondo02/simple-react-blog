@@ -23,21 +23,21 @@ export function Home() {
   return (
     <>
       <h1 className="mb-3">Mon Blog</h1>
-      {data && (
-        <div className="row gy-4">
-          {data.map((post) => (
-            <div key={post.id} className="col-12 col-sm-6 col-lg-4">
-              <Card
-                image={`https://picsum.photos/id/${post.id}/280/180`}
-                title={post.title}
-                description={post.body}
-                href={`#post:${post.id}`}
-                buttonLabel="Voir l'article"
-              />
-            </div>
-          ))}
-        </div>
-      )}
+        {data && (
+          <div className="row gy-4">
+            {data.map((post) => (
+              <div key={post.id} className="col-12 col-sm-6 col-lg-4">
+                <Card
+                  image={`https://picsum.photos/id/${post.id}/280/180`}
+                  title={post.title}
+                  description={post.body}
+                  href={`#post:${post.id}`}
+                  buttonLabel="Voir l'article"
+                />
+              </div>
+            ))}
+          </div>
+        )}
     </>
   )
 }
