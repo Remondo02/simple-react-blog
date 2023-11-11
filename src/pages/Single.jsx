@@ -6,8 +6,10 @@ import { Button } from "../components/Button.jsx"
 import { useToggle } from "../hooks/useToggle.js"
 import { Modal } from "../components/Modal.jsx"
 import { EditPostModal } from "./Single/EditPostModal.jsx"
+import { useTheme } from "../hooks/useTheme.jsx"
 
 export default function Single({ postId }) {
+  const { themeText } = useTheme()
   const {
     data: post,
     loading,
@@ -35,13 +37,13 @@ export default function Single({ postId }) {
 
   return (
     <>
-      <h1 className="mb-3">{post.title}</h1>
+      <h1 className={`mb-3 text-${themeText}`}>{post.title}</h1>
       <img
         src={`https://picsum.photos/id/${post.id}/800/600`}
         alt=""
         className="img-fluid rounded mx-auto d-block mb-3"
       />
-      <p>{post.body}</p>
+      <p className={`text-${themeText}`}>{post.body}</p>
       {isEditing && (
         <EditPostModal
           post={post}

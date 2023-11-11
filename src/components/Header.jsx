@@ -1,15 +1,18 @@
 import { useState } from "react"
 import { useToggle } from "../hooks/useToggle.js"
 import { activeClassIf } from "../utils/classnames.js"
+import { useTheme } from "../hooks/useTheme.jsx"
 
 /**
  * @param {string} page
  */
 export function Header({ page }) {
   const [expanded, toggleExpanded] = useToggle(false)
+  const { theme, toggleTheme } = useTheme()
+  const navClassName = `p-3 shadow-sm navbar navbar-expand-lg navbar-${theme} bg-${theme}`
 
   return (
-    <nav className="p-3 navbar navbar-expand-lg navbar-light bg-light">
+    <nav className={navClassName}>
       <a className="navbar-brand" href="#">
         MonSite
       </a>
@@ -43,6 +46,7 @@ export function Header({ page }) {
           </li>
         </ul>
       </div>
+      <button onClick={toggleTheme}>Changer de theme</button>
     </nav>
   )
 }
