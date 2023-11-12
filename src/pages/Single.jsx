@@ -11,7 +11,6 @@ import { themeColors } from "../utils/themeColors.js"
 
 export default function Single({ postId }) {
   const { reverseTheme } = useTheme()
-  console.log(reverseTheme)
   const {
     data: post,
     loading,
@@ -39,7 +38,7 @@ export default function Single({ postId }) {
 
   return (
     <>
-      <h1 className={themeColors("Text", {reverseTheme})}>{post.title}</h1>
+      <h1 className={themeColors("Text", { reverseTheme })}>{post.title}</h1>
       <img
         src={`https://picsum.photos/id/${post.id}/800/600`}
         alt=""
