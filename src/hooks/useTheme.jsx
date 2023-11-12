@@ -10,7 +10,7 @@ export function useTheme() {
     return {
         isLight: theme === 'light',
         isDark: theme === 'dark',
-        themeText : theme === "light" ? "dark" : "light",
+        reverseTheme : theme === "light" ? "dark" : "light",
         theme,
         toggleTheme,
     }

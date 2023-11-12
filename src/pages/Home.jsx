@@ -4,10 +4,11 @@ import { Spinner } from "../components/Spinner.jsx"
 import { Alert } from "../components/Alert.jsx"
 import { Card } from "../components/Card.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
+import { themeColors } from "../utils/themeColors.js"
 
 export function Home() {
   useDocumentTitle("Mon Blog")
-  const { themeText } = useTheme()
+  const { reverseTheme } = useTheme()
   const { data, loading, error } = useFetch(
     "https://jsonplaceholder.typicode.com/posts?_limit=10"
   )
@@ -22,7 +23,7 @@ export function Home() {
 
   return (
     <>
-      <h1 className={`mb-3 text-${themeText}`}>Mon Blog</h1>
+      <h1 className={themeColors("Text", {reverseTheme})}>Mon Blog</h1>
       {data && (
         <div className="row gy-4">
           {data.map((post) => (

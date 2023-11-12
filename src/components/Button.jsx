@@ -4,9 +4,11 @@
  * @returns {JSX.Element}
  */
 export function Button({ variant = "primary", ...props }) {
+  const initialProps = props
+  const { className, ...filteredProps } = initialProps
   const newProps = {
-    ...props,
-    className: `btn btn-${variant}`,
+    ...filteredProps,
+    className: `btn btn-${variant} ${initialProps?.className}`,
   }
 
   if (props.href) {

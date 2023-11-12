@@ -4,13 +4,14 @@ import { Spinner } from "../components/Spinner.jsx"
 import { Alert } from "../components/Alert.jsx"
 import { Button } from "../components/Button.jsx"
 import { useToggle } from "../hooks/useToggle.js"
-import { Modal } from "../components/Modal.jsx"
 import { EditPostModal } from "./Single/EditPostModal.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
 import { Pagination } from "../components/Pagination.jsx"
+import { themeColors } from "../utils/themeColors.js"
 
 export default function Single({ postId }) {
-  const { theme, themeText } = useTheme()
+  const { reverseTheme } = useTheme()
+  console.log(reverseTheme)
   const {
     data: post,
     loading,
@@ -38,13 +39,13 @@ export default function Single({ postId }) {
 
   return (
     <>
-      <h1 className={`mb-4 text-${themeText}`}>{post.title}</h1>
+      <h1 className={themeColors("Text", {reverseTheme})}>{post.title}</h1>
       <img
         src={`https://picsum.photos/id/${post.id}/800/600`}
         alt=""
         className="img-fluid rounded mx-auto d-block mb-4"
       />
-      <p className={`text-${themeText} mb-4`}>{post.body}</p>
+      <p className={`text-${reverseTheme} mb-4`}>{post.body}</p>
       {isEditing && (
         <EditPostModal
           post={post}
