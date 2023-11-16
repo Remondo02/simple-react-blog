@@ -3,10 +3,13 @@ import { Modal } from "../../components/Modal.jsx"
 import { Input } from "../../components/Input.jsx"
 import { useState } from "react"
 import { Alert } from "../../components/Alert.jsx"
+import { useTheme } from "../../hooks/useTheme.jsx"
+import { themeColors } from "../../utils/themeColors.js"
 
 export function EditPostModal({ post, onClose, onSave }) {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+  const { isLight } = useTheme()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -46,7 +49,11 @@ export function EditPostModal({ post, onClose, onSave }) {
           >
             Annuler
           </Button>
-          <Button disabled={loading} type="submit">
+          <Button
+            variant={themeColors("Button", { isLight })}
+            disabled={loading}
+            type="submit"
+          >
             Sauvegarder
           </Button>
         </div>

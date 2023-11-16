@@ -6,11 +6,10 @@ import { Button } from "../components/Button.jsx"
 import { useToggle } from "../hooks/useToggle.js"
 import { EditPostModal } from "./Single/EditPostModal.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
-import { Pagination } from "../components/Pagination.jsx"
 import { themeColors } from "../utils/themeColors.js"
 
 export default function Single({ postId }) {
-  const { reverseTheme } = useTheme()
+  const { isLight, reverseTheme } = useTheme()
   const {
     data: post,
     loading,
@@ -56,11 +55,9 @@ export default function Single({ postId }) {
         <Button variant="secondary" onClick={toggleEditing}>
           Editer l'article
         </Button>
-        <Pagination
-          firstButtonLabel={"article précédent"}
-          lastButtonLabel={"article suivant"}
-          page={post}
-        />
+        <Button variant={themeColors("Button", {isLight})} href={`#post:${post.id + 1}`}>
+          Article suivant
+        </Button>
       </div>
     </>
   )
