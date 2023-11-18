@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { useRefSync } from "./useRefSync.js"
 
 /**
@@ -14,16 +14,23 @@ export function useFetch(url, options = {}) {
   const optionsRef = useRefSync(options)
 
   useEffect(() => {
+    let headersContentType
+    let isImage
+    const typeImage = "image/jpeg"
     fetch(url, {
       ...optionsRef,
       headers: {
-        Accept: "application/json; charset=UTF-8",
+        Accept: ["application/json; charset=UTF-8"],
         ...optionsRef?.headers,
       },
     })
-      .then((r) => r.json())
+      .then((r) => {
+        headersContentType = r.headers.get("content-type")
+        return headersContentType === "image/jpeg" ? r.blob() : r.json()
+      })
       .then((data) => {
-        setLoading(false), setData(data)
+        isImage = headersContentType === "image/jpeg" ? true : false
+        setLoading(false), setData(isImage ? URL.createObjectURL(data) : data)
       })
       .catch((e) => setError(e))
       .finally(() => setLoading(false))

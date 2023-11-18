@@ -1,3 +1,7 @@
+/**
+ * @param {page} string 
+ * @returns {JSX.Element}
+ */
 export function NotFound({ page }) {
   return (
     <>

@@ -1,5 +1,5 @@
 /**
- * @param children
+ * @param [x: string]: string
  * @param {"primary" | "secondary" | "danger" | "light" | "dark"} variant
  * @returns {JSX.Element}
  */

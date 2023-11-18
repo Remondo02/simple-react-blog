@@ -13,16 +13,14 @@ function App() {
   const pageContent = getPageContent(page, param)
   const { theme } = useTheme()
   const baseStyle = { height: "100%", minHeight: "calc(100vh - 72px)" }
-  const fullStyle = page === "home" ? baseStyle : { maxWidth: 800, ...baseStyle}
+  const fullStyle =
+    page === "post" ? { maxWidth: 800, ...baseStyle } : baseStyle
 
   return (
     <>
       <Header page={page} />
       <div className={`bg-${theme}`}>
-        <div
-          className="container py-4"
-          style={ fullStyle }
-        >
+        <div className="container py-4" style={fullStyle}>
           <ErrorBoundary FallbackComponent={PageError}>
             {pageContent}
           </ErrorBoundary>
@@ -40,9 +38,11 @@ function getPageContent(page, param) {
   if (page === "home") {
     return <Home />
   }
+
   if (page === "contact") {
     return <Contact />
   }
+
   if (page === "post") {
     const SingleLazy = lazy(() => import("./pages/Single.jsx"))
     return (

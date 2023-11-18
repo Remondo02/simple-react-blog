@@ -8,6 +8,7 @@ import { Button } from "./Button.jsx"
 
 /**
  * @param {string} page
+ * @returns {JSX.Element}
  */
 export function Header({ page }) {
   const [expanded, toggleExpanded] = useToggle(false)
@@ -48,7 +49,13 @@ export function Header({ page }) {
           </li>
         </ul>
       </div>
-      <Button style={{ height: 42 }} className="d-flex align-items-center" type="button" variant={isLight ? "primary" : "warning"} onClick={toggleTheme}>
+      <Button
+        style={{ height: 42 }}
+        className="d-flex align-items-center"
+        type="button"
+        variant={isLight ? "primary" : "warning"}
+        onClick={toggleTheme}
+      >
         {isLight ? <Moon /> : <Sun />}
       </Button>
     </nav>

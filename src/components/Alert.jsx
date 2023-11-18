@@ -1,6 +1,7 @@
 /**
+ * @param children
  * @param {"danger" | "info" | "warning"} type
- * @returns
+ * @returns {JSX.Element}
  */
 export function Alert({ type = "info", children }) {
   return (
