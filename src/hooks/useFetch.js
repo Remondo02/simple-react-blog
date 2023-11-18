@@ -16,7 +16,6 @@ export function useFetch(url, options = {}) {
   useEffect(() => {
     let headersContentType
     let isImage
-    const typeImage = "image/jpeg"
     fetch(url, {
       ...optionsRef,
       headers: {

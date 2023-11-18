@@ -6,10 +6,8 @@ import { Card } from "../components/Card.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
 import { themeColors } from "../utils/themeColors.js"
 import { SkeletonCards } from "../components/SkeletonCardS.jsx"
-import { useState } from "react"
 
 export function Home() {
-
   const nbItems = 10
   useDocumentTitle("Mon Blog")
   const { reverseTheme } = useTheme()
