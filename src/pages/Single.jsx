@@ -1,6 +1,5 @@
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js"
 import { useFetch } from "../hooks/useFetch.js"
-import { Spinner } from "../components/Spinner.jsx"
 import { Alert } from "../components/Alert.jsx"
 import { Button } from "../components/Button.jsx"
 import { useToggle } from "../hooks/useToggle.js"
@@ -8,6 +7,7 @@ import { EditPostModal } from "./Single/EditPostModal.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
 import { themeColors } from "../utils/themeColors.js"
 import { Image } from "../components/Image.jsx"
+import { SkeletonSingle } from "../components/SkeletonSingle.jsx"
 
 export default function Single({ postId }) {
   const { isLight, reverseTheme } = useTheme()
@@ -21,7 +21,7 @@ export default function Single({ postId }) {
   const [isEditing, toggleEditing] = useToggle(false)
 
   if (loading) {
-    return <Spinner />
+    return <SkeletonSingle />
   }
 
   if (error) {

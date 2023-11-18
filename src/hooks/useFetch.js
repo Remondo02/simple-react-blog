@@ -19,7 +19,7 @@ export function useFetch(url, options = {}) {
     fetch(url, {
       ...optionsRef,
       headers: {
-        Accept: ["application/json; charset=UTF-8"],
+        Accept: "application/json; charset=UTF-8",
         ...optionsRef?.headers,
       },
     })
