@@ -8,11 +8,11 @@ export function SkeletonSingle() {
       <h1 className="card-title placeholder-glow">
         <span className="placeholder col-8 mb-4"></span>
       </h1>
-      <img
+      <div
         src="#"
         style={style}
         className="card-img-top img-fluid rounded mx-auto mb-4"
-      />
+      ></div>
       <p className="card-text placeholder-glow">
         <span className="placeholder col-7"></span>
         <span className="placeholder col-4"></span>

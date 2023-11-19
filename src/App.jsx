@@ -7,7 +7,7 @@ import { ErrorBoundary } from "react-error-boundary"
 import { Alert } from "./components/Alert.jsx"
 import { Suspense, lazy } from "react"
 import { useTheme } from "./hooks/useTheme.jsx"
-import { SkeletonSingle } from "./components/SkeletonSingle.jsx"
+import { Spinner } from "./components/Spinner.jsx"
 
 function App() {
   const { page, param } = useHashNavigation()
@@ -47,7 +47,7 @@ function getPageContent(page, param) {
   if (page === "post") {
     const SingleLazy = lazy(() => import("./pages/Single.jsx"))
     return (
-      <Suspense fallback={<SkeletonSingle />}>
+      <Suspense fallback={<Spinner/>}>
         <SingleLazy postId={param} />
       </Suspense>
     )
