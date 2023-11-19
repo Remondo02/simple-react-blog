@@ -3,7 +3,7 @@ import { useTheme } from "../hooks/useTheme.jsx"
 import { themeColors } from "../utils/themeColors.js"
 import { Alert } from "./Alert.jsx"
 import { Button } from "./Button.jsx"
-import { SkeletonCards } from "./SkeletonCardS.jsx"
+import { SkeletonCards } from "./SkeletonCards.jsx"
 
 /**
  * @param {boolean} dataLoading

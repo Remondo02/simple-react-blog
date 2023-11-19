@@ -5,7 +5,6 @@ import { Alert } from "../components/Alert.jsx"
 import { Card } from "../components/Card.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
 import { themeColors } from "../utils/themeColors.js"
-import { SkeletonCards } from "../components/SkeletonCardS.jsx"
 import { useEffect, useState } from "react"
 
 export function Home() {
