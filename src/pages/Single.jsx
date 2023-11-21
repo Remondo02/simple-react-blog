@@ -7,32 +7,29 @@ import { EditPostModal } from "./Single/EditPostModal.jsx"
 import { useTheme } from "../hooks/useTheme.jsx"
 import { themeColors } from "../utils/themeColors.js"
 import { SkeletonSingle } from "../components/SkeletonSingle.jsx"
+import { SkeletonCardImage } from "../components/SkeletonCardImage.jsx"
 
 export default function Single({ postId }) {
   const { isLight, reverseTheme } = useTheme()
   const {
     data: post,
-    loading: dataLoading,
-    error: dataError,
+    loading: postLoading,
+    error: postError,
     setData,
   } = useFetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-  useDocumentTitle(post?.title)
-
-  const [isEditing, toggleEditing] = useToggle(false)
 
   const imgUrl = `https://picsum.photos/id/${postId}/800/600`
-  const { data: url, loading: imgLoading, error: imgError } = useFetch(imgUrl)
-  let errors = []
+  const { data: img, loading: imgLoading, error: imgError } = useFetch(imgUrl)
 
-  errors.push(dataError, imgError)
-  errors = errors.toString().split(",").join(" ")
+  useDocumentTitle(post?.title)
+  const [isEditing, toggleEditing] = useToggle(false)
 
-  if (dataLoading || imgLoading) {
+  if (postLoading) {
     return <SkeletonSingle />
   }
 
-  if (dataError || imgError) {
-    return <Alert type="danger">{errors}</Alert>
+  if (postError) {
+    return <Alert type="danger">{error.toString()}</Alert>
   }
 
   const handleSave = (data) => {
@@ -46,7 +43,15 @@ export default function Single({ postId }) {
   return (
     <>
       <h1 className={themeColors("Text", { reverseTheme })}>{post.title}</h1>
-      <img src={url} className="img-fluid rounded mx-auto d-block mb-4" />
+      {imgLoading && <SkeletonCardImage />}
+      {imgError && <Alert type="danger">{error.toString()}</Alert>}
+      {img && (
+        <img
+          src={img}
+          className="img-fluid rounded mx-auto d-block mb-4"
+          alt=""
+        />
+      )}
       <p className={`text-${reverseTheme} mb-4`}>{post.body}</p>
       {isEditing && (
         <EditPostModal
