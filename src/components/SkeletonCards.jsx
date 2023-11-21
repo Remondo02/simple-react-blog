@@ -1,7 +1,9 @@
+import { SkeletonCardImage } from "./SkeletonCardImage.jsx"
+
 export function SkeletonCards({ arraySize }) {
   const nbCards = Array(arraySize)
   const cardsArray = Array.from(nbCards.keys())
-  const style = { backgroundColor: "#868e96", height: 180, width: "100%" }
+
   return (
     <>
       {cardsArray && (
@@ -13,11 +15,7 @@ export function SkeletonCards({ arraySize }) {
               aria-hidden="true"
             >
               <div className="card">
-                <div
-                  src="#"
-                  style={style}
-                  className="card-img-top img-fluid"
-                ></div>
+                <SkeletonCardImage />
                 <div className="card-body">
                   <h5 className="card-title placeholder-glow">
                     <span className="placeholder col-6"></span>

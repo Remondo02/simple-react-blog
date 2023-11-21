@@ -41,36 +41,38 @@ export default function Single({ postId }) {
   }
 
   return (
-    <>
-      <h1 className={themeColors("Text", { reverseTheme })}>{post.title}</h1>
-      {imgLoading && <SkeletonCardImage />}
-      {imgError && <Alert type="danger">{error.toString()}</Alert>}
-      {img && (
-        <img
-          src={img}
-          className="img-fluid rounded mx-auto d-block mb-4"
-          alt=""
-        />
-      )}
-      <p className={`text-${reverseTheme} mb-4`}>{post.body}</p>
-      {isEditing && (
-        <EditPostModal
-          post={post}
-          onClose={toggleEditing}
-          onSave={handleSave}
-        />
-      )}
-      <div className="d-flex justify-content-between">
-        <Button variant="secondary" onClick={toggleEditing}>
-          Editer l'article
-        </Button>
-        <Button
-          variant={themeColors("Button", { isLight })}
-          href={`#post:${post.id + 1}`}
-        >
-          Article suivant
-        </Button>
-      </div>
-    </>
+    post && (
+      <>
+        <h1 className={themeColors("Text", { reverseTheme })}>{post.title}</h1>
+        {imgLoading && <SkeletonCardImage />}
+        {imgError && <Alert type="danger">{imgError.toString()}</Alert>}
+        {img && (
+          <img
+            src={img}
+            className="img-fluid rounded mx-auto d-block mb-4"
+            alt=""
+          />
+        )}
+        <p className={`text-${reverseTheme} mb-4`}>{post.body}</p>
+        {isEditing && (
+          <EditPostModal
+            post={post}
+            onClose={toggleEditing}
+            onSave={handleSave}
+          />
+        )}
+        <div className="d-flex justify-content-between">
+          <Button variant="secondary" onClick={toggleEditing}>
+            Editer l'article
+          </Button>
+          <Button
+            variant={themeColors("Button", { isLight })}
+            href={`#post:${post.id + 1}`}
+          >
+            Article suivant
+          </Button>
+        </div>
+      </>
+    )
   )
 }

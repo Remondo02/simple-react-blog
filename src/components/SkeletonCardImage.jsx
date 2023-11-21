@@ -5,12 +5,28 @@ import { useHashNavigation } from "../hooks/useHashNavigation.js"
  */
 export function SkeletonCardImage() {
   const { page } = useHashNavigation()
-  let display = { display: "grid" }
+  const animation = {
+    animation: "2s ease-in-out infinite",
+  }
+
   const style =
-    page === "home" ? { ...display, height: 180 } : { ...display, height: 600 }
+    page === "home"
+      ? { ...animation, aspectRatio: "280/180" }
+      : {
+          ...animation,
+          aspectRatio: "800/600",
+          borderRadius: "calc(0.375rem - 1px)",
+        }
+
   return (
-    <div style={style} className="placeholder-glow card-img-top bg-secondary">
-      <span className="placeholder"></span>
+    <div
+      style={style}
+      className="placeholder-glow card-img-top img-fluid bg-secondary mx-auto d-block"
+    >
+      <span
+        style={{ height: "100%", width: "100%" }}
+        className="placeholder rounded"
+      ></span>
     </div>
   )
 }
