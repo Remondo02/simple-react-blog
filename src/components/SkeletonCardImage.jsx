@@ -16,6 +16,7 @@ export function SkeletonCardImage() {
           ...animation,
           aspectRatio: "800/600",
           borderRadius: "calc(0.375rem - 1px)",
+          marginBottom: "1.5rem",
         }
 
   return (
