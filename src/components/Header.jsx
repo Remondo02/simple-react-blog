@@ -11,17 +11,16 @@ import { useMediaQuery } from "../hooks/useMediaQuery.js"
  * @returns {JSX.Element}
  */
 export function Header({ page }) {
-  const mediaQuery = useMediaQuery()
+  const activeMenu = useMediaQuery()
   const [expanded, toggleExpanded] = useToggle(false)
   const { theme, toggleTheme, isLight } = useTheme()
-  const isLarge = mediaQuery >= 992 ? true : false
 
   return (
     <nav className={themeColors("Header", { theme, isLight })}>
       <a className="navbar-brand" href="#">
         MonSite
       </a>
-      {!isLarge && (
+      {!activeMenu && (
         <div className="d-flex gap-2">
           <Button
             style={{ height: 42 }}
@@ -64,7 +63,7 @@ export function Header({ page }) {
           </li>
         </ul>
       </div>
-      {isLarge && (
+      {activeMenu && (
         <Button
           style={{ height: 42 }}
           className="d-flex align-items-center"

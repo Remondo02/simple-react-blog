@@ -1,18 +1,27 @@
 import { useEffect, useState, useRef } from "react"
 
 export function useMediaQuery() {
-  const initialWidthValue = useRef(window.outerWidth)
-  const [windowWidth, setWindowWith] = useState(initialWidthValue.current)
+  const initialScreenSize = useRef(window.innerWidth)
+  const [screenSize, setScreenSize] = useState(initialScreenSize.current)
+  const [activeMenu, setActiveMenu] = useState(null)
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWith(window.outerWidth)
+      setScreenSize(window.innerWidth)
     }
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
     }
-  }, [windowWidth])
+  }, [screenSize])
 
-  return windowWidth
+  useEffect(() => {
+    if (screenSize < 992) {
+      setActiveMenu(false)
+    } else {
+      setActiveMenu(true)
+    }
+  }, [screenSize])
+
+  return activeMenu
 }
