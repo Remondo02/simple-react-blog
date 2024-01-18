@@ -9,7 +9,7 @@ The idea was to create a simple blog using only React core system, with minimum 
 
 The blog features a main page Home that display 10 posts fetched from JSONPlaceholder, and images from Lorem Picsum. Each post has it's own dedicated page, and can be edited and saved. The changes will be automatically updated in the UI. (no local storage or database, therefore any refresh will go bring back to its initial state). There's also a theme toggle button, and a Contact page, just for the demonstration of basic routing system (without React Router Dom).
 
-[![Project thumbnail](./public/images/blog.png)](https://remimeullemeestre-simple-react-blog.netlify.app/)
+[![Project thumbnail](./public/blog.png)](https://remimeullemeestre-simple-react-blog.netlify.app/)
 
 ## Stack
 

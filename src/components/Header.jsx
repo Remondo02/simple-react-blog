@@ -11,7 +11,7 @@ import { useMediaQuery } from "../hooks/useMediaQuery.js"
  * @returns {JSX.Element}
  */
 export function Header({ page }) {
-  const activeMenu = useMediaQuery()
+  const isMobile = useMediaQuery()
   const [expanded, toggleExpanded] = useToggle(false)
   const { theme, toggleTheme, isLight } = useTheme()
 
@@ -20,7 +20,7 @@ export function Header({ page }) {
       <a className="navbar-brand" href="#">
         MonSite
       </a>
-      {!activeMenu && (
+      {isMobile && (
         <div className="d-flex gap-2">
           <Button
             style={{ height: 42 }}
@@ -63,7 +63,7 @@ export function Header({ page }) {
           </li>
         </ul>
       </div>
-      {activeMenu && (
+      {!isMobile && (
         <Button
           style={{ height: 42 }}
           className="d-flex align-items-center"
